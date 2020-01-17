@@ -1,8 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PokeListComponent } from './poke-list/poke-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/login'},
+  { path: 'home', component: HomeComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'pokeList', component: PokeListComponent},
+
+  //needs to be last
+  { path: '**', component: PageNotFoundComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

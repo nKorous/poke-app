@@ -1,5 +1,28 @@
 <mat-toolbar color='primary'>
+    <button mat-icon-button [matMenuTriggerFor]='mainMenu'>
+        <mat-icon>menu</mat-icon>
+    </button>
     PokeApp
+
+    <span style='flex: 1 1'></span>
+
+    Welcome
 </mat-toolbar>
+
+<mat-menu #mainMenu='matMenu'>
+    <button mat-menu-item routerLink='/' routerLinkActive='true'>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+
+    <button mat-menu-item routerLink='/pokeList' routerLinkActive='true'>
+        <mat-icon>list</mat-icon>
+        <span>List</span>
+    </button>
+
+    <button mat-menu-item disabled>s
+        <span>My Team</span>
+    </button>
+</mat-menu>
 
 <router-outlet></router-outlet>
