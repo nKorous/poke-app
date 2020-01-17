@@ -10,7 +10,10 @@ import { DxDataGridModule } from 'devextreme-angular';
 import { PokeListComponent } from './poke-list/poke-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { PokeDashboardComponent } from './poke-dashboard/poke-dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { LayoutModule } from '@angular/cdk/layout'
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { HomeComponent } from './home/home.component'
     PokeListComponent,
     PageNotFoundComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PokeDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,8 @@ import { HomeComponent } from './home/home.component'
     MatIconModule,
     DxDataGridModule,
     MatMenuModule,
+    MatGridListModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

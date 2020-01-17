@@ -4,6 +4,7 @@ import { PokeListComponent } from './poke-list/poke-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { PokeDashboardComponent } from './poke-dashboard/poke-dashboard.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'pokeList', component: PokeListComponent},
+  { path: 'pokeDashboard', component: PokeDashboardComponent},
 
   //needs to be last
   { path: '**', component: PageNotFoundComponent}

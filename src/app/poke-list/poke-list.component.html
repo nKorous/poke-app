@@ -1,1 +1,14 @@
-<dx-data-grid [dataSource]='pokeList'></dx-data-grid>
+<dx-data-grid [dataSource]='pokeList' [allowColumnReordering]="true" [rowAlternationEnabled]="true"
+    [showBorders]="true"(onInitialized)='onInitialized($event)'>
+    <dxi-column dataField='pokedex_number' dataType='number' alignment='center' caption='PokeDex Number'></dxi-column>
+    <dxi-column dataField='name' dataType='string'></dxi-column>
+    <dxi-column dataField='generation' dataType='number' alignment='center'></dxi-column>
+    <dxi-column dataField='type1' dataType='string' caption='Primary Type'></dxi-column>
+    <dxi-column dataField='type2' dataType='string' caption='Secondary Type'></dxi-column>
+    <dxi-column dataField='classfication' dataType='string' caption='Classification'></dxi-column>
+    <dxi-column dataField='is_legendary' dataType='boolean' caption='Legendary Status'></dxi-column>
+
+    <dxo-scrolling mode="infinite"></dxo-scrolling>
+    <dxo-header-filter [visible]="true"></dxo-header-filter>
+    <dxo-search-panel [visible]="true" [width]="240" placeholder="Search..."></dxo-search-panel>
+</dx-data-grid>

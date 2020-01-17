@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
-    if(this.loginService.checkUserLoggedIn()) this.loggedInRedirectToHome()
+    if (this.loginService.checkUserLoggedInStatus()) this.loggedInRedirectToHome()
   }
 
   loggedInRedirectToHome() {
