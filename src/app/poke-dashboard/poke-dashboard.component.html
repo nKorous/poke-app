@@ -1,18 +1,58 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+  <mat-grid-list cols="8" rowHeight="350px">
+    <mat-grid-tile colspan='4' rowspan='1'>
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
+            Type Breakdown
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <dx-chart [dataSource]='primaryTypeBreakdown' palette='soft blue'>
+            <dxi-series argumentField='type' valueField='count' type='bar'></dxi-series>
+
+            <dxo-legend [visible]='false'></dxo-legend>
+          </dx-chart>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan='4' rowspan='1'>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Generation Breakdown
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <dx-pie-chart [dataSource]='generationBreakdown' palette='soft blue' resolveLabelOverlapping="shift">
+            <dxi-series argumentField='gen' valueField='count'>
+              <dxo-label [visible]='true' [customizeText]="customizeLabel" position='inside'></dxo-label>
+            </dxi-series>
+          </dx-pie-chart>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan='4' rowspan='1'>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            X
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Card Content Here</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan='4' rowspan='1'>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Y
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">

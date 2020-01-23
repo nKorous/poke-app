@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-poke-dashboard',
@@ -8,26 +7,31 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./poke-dashboard.component.css']
 })
 export class PokeDashboardComponent {
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
+  primaryTypeBreakdown: Array<{ type: string, count: number }> = new Array()
+  generationBreakdown: Array<{gen: string, count: number}> = new Array()
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
+
+  constructor(private dataService: DataService) { }
+
+  ngOnInit() {
+    this.getTypeBreakdownChartData()
+    this.getGenerationBreakdownChartData()
+  }
+
+  getTypeBreakdownChartData() {
+    this.dataService.getListByPrimaryType().subscribe(data => {
+      this.primaryTypeBreakdown = data
     })
-  );
+  }
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  getGenerationBreakdownChartData(){
+    this.dataService.getListByGeneration().subscribe(data => {
+      this.generationBreakdown = data
+    })
+  }
+
+  customizeLabel(arg: any){
+    console.log(arg)
+    return arg.percentText
+  }
 }

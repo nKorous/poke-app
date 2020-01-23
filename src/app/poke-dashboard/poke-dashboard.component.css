@@ -10,12 +10,14 @@
   bottom: 15px;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
-
 .dashboard-card-content {
   text-align: center;
+}
+
+.dashboard-card-content dx-chart {
+  height: 250px;
+}
+
+.dashboard-card-content dx-pie-chart {
+  height: 250px;
 }
