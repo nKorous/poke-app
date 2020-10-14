@@ -31,7 +31,6 @@ export class PokeDashboardComponent {
   }
 
   customizeLabel(arg: any){
-    console.log(arg)
     return arg.percentText
   }
 }

@@ -8,9 +8,7 @@ import { PokeDashboardComponent } from './poke-dashboard/poke-dashboard.componen
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/login'},
-  { path: 'home', component: HomeComponent},
-  { path: 'login', component: LoginComponent},
+  { path: '', pathMatch: 'full', redirectTo: '/pokeList'},
   { path: 'pokeList', component: PokeListComponent},
   { path: 'pokeDashboard', component: PokeDashboardComponent},
 
